@@ -1,0 +1,47 @@
+.service-heading {
+  text-align: center;
+  font-size: 40px;
+  background: linear-gradient(45deg, rgb(182, 234, 26), rgb(77, 87, 230));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.service-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: darkcyan;
+  /* z-index: -1; */
+}
+/* .services {
+  position: absolute;
+  top: 160px;
+ z-index: 0;
+}  */
+.service-content {
+  font-size: 16px;
+  color: black;
+  text-align: center;
+}
+.service-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+.service-logo {
+  width: 450px;
+  height: 400px;
+}
+.service-icons i {
+  font-size: 30px;
+  padding-right: 30px;
+  /* color: #ffff00; */
+}
+
+@media (max-width: 700px) {
+  .services {
+    position: relative;
+    top: 0px;
+  }
+}

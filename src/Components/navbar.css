@@ -1,0 +1,116 @@
+/* .nav {
+  margin-top: 50px;
+  margin-bottom: 50px;
+} */
+.main-logo {
+  width: 150px;
+  height: 150px;
+}
+
+.nav-link {
+  font-size: larger;
+  margin-right: 40px;
+}
+.nav-link:hover {
+  color: blue;
+  transition: 100ms;
+}
+#submenu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  visibility: hidden;
+  position: absolute;
+  left: 820px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-10px);
+  opacity: 0;
+  /* border-radius: 5px; */
+}
+
+.sub-link {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+}
+
+#services:hover #submenu {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sub-item {
+  height: 30px;
+  padding-right: 20px;
+  display: flex;
+  margin-top: 10px;
+}
+
+#add-sub-menu {
+  visibility: hidden;
+  position: absolute;
+  left: 246px;
+  list-style: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-10px);
+  opacity: 0;
+  background-color: white;
+  width: 290px;
+  /* border-radius: 5px; */
+  /* z-index: 1; */
+  /* height: 500px; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+.add-sub-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 8px;
+}
+.add-sub-link {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+/* .add-sub-item {
+  border-bottom: 1px dashed white;
+} */
+/* .sub-link:hover {
+  color: red;
+} */
+.sub-item a {
+  transition: 0.2s;
+}
+.sub-link:hover {
+  color: #585850;
+}
+
+.add-sub-item a:hover {
+  color: #0000cc;
+}
+.sub-item:hover #add-sub-menu {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+.sub-erp {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-10px);
+  margin-left: 15px;
+}
+.sub-erp a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+#add-sub-erp:hover .sub-erp {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
