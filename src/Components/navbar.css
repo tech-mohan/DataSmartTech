@@ -2,9 +2,13 @@
   margin-top: 50px;
   margin-bottom: 50px;
 } */
+.navigation {
+  display: flex;
+  justify-content: start;
+}
 .main-logo {
-  width: 150px;
-  height: 150px;
+  width: 115x;
+  height: 115px;
 }
 
 .nav-link {
@@ -23,7 +27,7 @@
   background-color: white;
   visibility: hidden;
   position: absolute;
-  left: 820px;
+  left: 520px;
   transition: opacity 0.5s ease, transform 0.5s ease;
   transform: translateY(-10px);
   opacity: 0;
@@ -41,9 +45,12 @@
   transform: translateY(0);
   opacity: 1;
 }
+#service-list {
+  display: none;
+}
 
 .sub-item {
-  height: 30px;
+  /* height: 30px; */
   padding-right: 20px;
   display: flex;
   margin-top: 10px;
@@ -113,4 +120,48 @@
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+}
+/* #submenu.active {
+  visibility: visible;
+} */
+@media (max-width: 800px) {
+  .main-logo {
+    width: 100px;
+    height: 100px;
+  }
+  #submenu {
+    /* list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    visibility: hidden; */
+    position: absolute;
+    left: 100px;
+    /* visibility: visible; */
+    /* transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(-10px);
+    opacity: 0; */
+    /* border-radius: 5px; */
+  }
+
+  #service-list {
+    display: inline;
+    color: black;
+    position: relative;
+    left: 10px;
+  }
+  .sub-link {
+    font-size: 14px;
+  }
+  .add-sub-link {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+  }
+  #add-sub-menu {
+    position: absolute;
+    left: 5px;
+    top: 65px;
+  }
 }

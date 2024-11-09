@@ -1,7 +1,6 @@
 import React from "react";
 import "./About.css";
 import about from "../assets/about-logo.png";
-import Home from "./Home";
 
 export default function AboutUs() {
   const colors = ["yellowgreen", "skyblue", "#CC99FF", "lightpink"];
@@ -15,10 +14,10 @@ export default function AboutUs() {
       <h1 className="about-heading">About Us</h1>
 
       <div className="row about">
-        <div className="col-lg-6 col-md-12 col-sm-12">
+        <div className="col-lg-6 col-md-12 col-sm-12 left-about">
           <img src={about} alt="" className="about-logo" />
         </div>
-        <div className="col-lg-6 col-md-12 col-sm-12 left-about">
+        <div className="col-lg-6 col-md-12 col-sm-12 right-about">
           <p className="about-ctnt">
             We are building relationship with both of our Clients and
             Consultants Since Year 2000. In order to bring them together in

@@ -1,0 +1,92 @@
+/* .page-top {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.service-heading {
+  /* text-align: center; */
+  /* position: absolute;
+  top: 135px; */
+  font-size: 40px;
+  color: #800080;
+}
+.button {
+  position: sticky;
+  top: 30px;
+  left: 900px;
+  /* margin-bottom: 20px; */
+  /* display: block; */
+}
+.btn {
+  margin-bottom: 5px;
+  margin-right: 2px;
+}
+.service-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+
+  /* z-index: -1; */
+}
+/* .services {
+  position: absolute;
+  top: 160px;
+ z-index: 0;
+}  */
+.service-content {
+  font-size: 16px;
+  color: black;
+  text-align: justify;
+}
+/* .service-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 900px;
+  align-items: end;
+  margin-top: 10px;
+} */
+.service-logo {
+  width: 350px;
+  height: 350px;
+}
+.service-page div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.sub-heading {
+  /* text-align: center; */
+  margin-top: 10px;
+}
+.service-icons i {
+  font-size: 30px;
+  padding-right: 30px;
+  /* color: #ffff00; */
+}
+.web-logo {
+  width: 420px;
+  height: 300px;
+}
+.sales-logo {
+  width: 450px;
+  height: 350px;
+}
+
+.up-btn {
+  position: sticky;
+  left: 1200px;
+  top: 30px;
+}
+.down-btn {
+  position: sticky;
+  bottom: 30px;
+  left: 1200px;
+}
+@media (max-width: 800px) {
+  .service-page :nth-child(2) {
+    order: 1;
+  }
+}

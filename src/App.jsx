@@ -5,7 +5,6 @@ import Routing from "./Router";
 function App() {
   return (
     <>
-      <Navbar />
       <Routing />
     </>
   );

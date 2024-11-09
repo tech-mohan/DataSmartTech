@@ -1,11 +1,35 @@
 import "./navbar.css";
-import React from "react";
-import mainLogo from "../assets/main-logo.png";
+import React, { useEffect } from "react";
+import mainLogo from "../assets/main-logo-1.png";
+import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  // Navigate to the services page
+  const navigate = useNavigate();
+  const handleComponentClick = (componentID) => {
+    navigate("/Services", { state: { scrollTo: componentID } });
+  };
+  // for responciveness
+  // useEffect(() => {
+  //   const handleClick = (event) => {
+  //     const submenu = document.getElementById("submenu");
+  //     submenu.classList.toggle("active");
+  //   };
+
+  //   const services = document.getElementById("service-list");
+
+  //   if (services) {
+  //     services.addEventListener("click", handleClick);
+  //   }
+  //   return () => {
+  //     services.removeEventListener("click", handleClick);
+  //   };
+  // }, []);
+
   return (
     <nav className="navbar navbar-expand-lg nav">
-      <div className="container-fluid">
+      <div className="container">
         <a className="navbar-brand">
           <img src={mainLogo} className="main-logo" alt="Data smart tech" />
         </a>
@@ -20,7 +44,7 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav">
             <li className="nav-item active">
               <a href="/" className="nav-link ">
                 Home
@@ -31,99 +55,205 @@ function Navbar() {
                 About Us
               </a>
             </li>
+
             <li className="nav-item " id="services">
               <a href="Services" className="nav-link">
-                Services
+                Services{" "}
+                <a id="service-list" href="#">
+                  <i class="bi bi-chevron-right"></i>
+                </a>
               </a>
               {/* Sub menu */}
               <ul id="submenu" className="sub-nav">
                 <li className="sub-item" id="sub-services">
                   <a href="#" className="sub-link">
                     Design N Development
+                    <a id="service-list" href="#">
+                      <i class="bi bi-chevron-right"></i>
+                    </a>
                   </a>
                   <ul className="add-sub-menu" id="add-sub-menu">
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        AS/400 Apps
-                      </a>
+                      <Link to="As400" spy={true} smooth={true} delay={0}>
+                        <a
+                          href=""
+                          className="add-sub-link"
+                          onClick={() => handleComponentClick("As400")}
+                        >
+                          AS/400 Apps
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Cold Fusion, CFML
-                      </a>
+                      <Link to="Coldfusion" spy={true} smooth={true} delay={0}>
+                        <a
+                          href=""
+                          className="add-sub-link"
+                          onClick={() => handleComponentClick("Coldfusion")}
+                        >
+                          Cold Fusion, CFML
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Data Science, AI ML DL NLP PYTHON
-                      </a>
+                      <Link to="Datascience" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          className="add-sub-link"
+                          onClick={() => handleComponentClick("Datascience")}
+                        >
+                          Data Science, AI ML DL NLP PYTHON
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="add-sub-item">
+                      <Link to="Marketing" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Marketing")}
+                          className="add-sub-link"
+                        >
+                          Digital N Social Media Marketing
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item" id="add-sub-erp">
-                      <a href="" className="add-sub-link">
-                        Enterprise Resource Planning (ERP)
-                        <li className="sub-erp">
-                          {" "}
-                          <a href="#"> Oracle Apps All Modules</a>
-                          <br />
-                          <a href="">SAP All Modules</a>
-                        </li>
-                      </a>
+                      <Link to="Oracle" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Oracle")}
+                          className="add-sub-link"
+                        >
+                          Enterprise Resource Planning (ERP)
+                        </a>
+                      </Link>
+                      <li className="sub-erp">
+                        <Link to="Oracle" spy={true} smooth={true}>
+                          <a
+                            href="Services"
+                            onClick={() => handleComponentClick("Oracle")}
+                            className="add-sub-link"
+                          >
+                            Oracle Apps All Modules
+                          </a>
+                        </Link>
+                        <br />
+                        <Link to="SAP" spy={true} smooth={true}>
+                          <a
+                            href="Services"
+                            onClick={() => handleComponentClick("SAP")}
+                            className="add-sub-link"
+                          >
+                            SAP All Modules
+                          </a>
+                        </Link>
+                      </li>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Full Stack Java, JS, Hibernate
-                      </a>
+                      <Link to="Fullstack" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Fullstack")}
+                          className="add-sub-link"
+                        >
+                          Full Stack Java, JS, Hibernate, JSP
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        GO Lang
-                      </a>
-                    </li>
-                    <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Mainframe Apps Enhancement
-                      </a>
-                    </li>
-                    <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        MEAN, MERN, MEEN, MEVN Stacks
-                      </a>
-                    </li>
-                    <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Mobile Apps
-                      </a>
+                      <Link to="Golang" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Golang")}
+                          className="add-sub-link"
+                        >
+                          GO Lang
+                        </a>
+                      </Link>
                     </li>
 
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Robotics 2D
-                      </a>
+                      <Link to="Mainframe" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Mainframe")}
+                          className="add-sub-link"
+                        >
+                          Mainframe Apps Enhancement
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Robotics Process Automation RPA
-                      </a>
+                      <Link to="MERN" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("MERN")}
+                          className="add-sub-link"
+                        >
+                          MEAN, MERN, MEEN, MEVN Stacks
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Sales Force, CRM
-                      </a>
+                      <Link to="2D" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("2D")}
+                          className="add-sub-link"
+                        >
+                          Robotics 2D
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Statistical Apps, R Studio
-                      </a>
+                      <Link to="RPA" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("RPA")}
+                          className="add-sub-link"
+                        >
+                          Robotics Process Automation RPA
+                        </a>
+                      </Link>
                     </li>
                     <li className="add-sub-item">
-                      <a href="" className="add-sub-link">
-                        Web Apps All Kind
-                      </a>
+                      <Link to="Sales" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Sales")}
+                          className="add-sub-link"
+                        >
+                          Sales Force, CRM
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="add-sub-item">
+                      <Link to="Studio" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Studio")}
+                          className="add-sub-link"
+                        >
+                          Statistical Apps, R Studio
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="add-sub-item">
+                      <Link to="Web" spy={true} smooth={true}>
+                        <a
+                          href="Services"
+                          onClick={() => handleComponentClick("Web")}
+                          className="add-sub-link"
+                        >
+                          Web Apps All Kind
+                        </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li className="sub-item" id="sub-services">
                   <a href="#" className="sub-link">
-                    Marketing
+                    Testing
                   </a>
                 </li>
               </ul>

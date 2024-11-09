@@ -28,7 +28,8 @@
   align-items: center;
   display: flex;
 }
-.left-about {
+.left-about,
+.right-about {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +51,11 @@
   .about-ctnt {
     width: 350px;
   }
-  .left-about {
+  .right-about {
     order: 2;
+  }
+  .social {
+    width: 350px;
+    text-align: center;
   }
 }
