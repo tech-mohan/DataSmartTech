@@ -50,6 +50,10 @@ export default function AboutUs() {
           </span>
         </div>
       </div>
+      <div className=" row team-members">
+        <div className="col-lg-6 col-md-12 col-sm-12 team-left"></div>
+        <div className="col-lg-6 col-md-12 col-sm-12 team-right"></div>
+      </div>
     </div>
   );
 }

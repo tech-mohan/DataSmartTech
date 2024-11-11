@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Services.css";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -29,18 +29,41 @@ export default function Services() {
     index = (index + 1) % bgcolor.length;
   }, 3000);
   const location = useLocation();
+  if (location.state && location.state.scrollTo) {
+    scroller.scrollTo(location.state.scrollTo, {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    });
+  }
+
+  // fetch the data
+  const [Data, setData] = useState(null);
+  const [Loading, setLoading] = useState(true);
   useEffect(() => {
-    if (location.state && location.state.scrollTo) {
-      scroller.scrollTo(location.state.scrollTo, {
-        duration: 800,
-        delay: 0,
-        smooth: "easeInOutQuart",
-      });
-    }
+    // fetch method
+    // fetch("http://localhost:8000/Services")
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data))
+    //   .then((data) => setData(data))
+    //   .catch((error) => console.error("error:", error));
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/Services");
+        const json = await response.json();
+        setData(json.data);
+        setLoading(false);
+        console.log(Array.isArray(Data));
+        console.log(Data);
+      } catch (error) {
+        console.log("error:", error);
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, [location.state]);
   return (
     <div className="container services">
-      {/* <div className="page-top"> */}
       <Link to="As400" spy={true} smooth={true}>
         <button className="btn-primary btn up-btn">
           <i class="bi bi-chevron-double-up"></i>
@@ -48,8 +71,31 @@ export default function Services() {
       </Link>
 
       <h1 className="service-heading">Our Services</h1>
+      {/* Populate the components using map method */}
+      {Loading ? (
+        <h6>loading....</h6>
+      ) : Data ? (
+        Data.map((item, index) => (
+          <div className="row service-page" key={index} id={item.id}>
+            <div className="col-lg-6 col-md-12 col-sm-12 service-left">
+              <h4 className="sub-heading">{item.title}</h4>
+              <p className="service-content">{item.content}</p>
+            </div>
+            <div className="col-lg-6 col-md-12 col-sm-12 service-right">
+              <img
+                src={item.image}
+                alt="image not found!"
+                className="service-img"
+              />
+            </div>
+          </div>
+        ))
+      ) : (
+        "Data Not Found!"
+      )}
+
       {/* </div> */}
-      <As400 />
+      {/* <As400 />
       <Coldfusion />
       <Datascience />
       <Marketing />
@@ -63,7 +109,7 @@ export default function Services() {
       <RPA />
       <Sales />
       <Studio />
-      <Web />
+      <Web /> */}
       <Link to="Web" spy={true} smooth={true}>
         <button className="btn-success btn down-btn">
           <i class="bi bi-chevron-double-down"></i>
