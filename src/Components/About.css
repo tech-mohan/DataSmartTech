@@ -46,13 +46,69 @@
   width: 500px;
   height: 400px;
 }
+.teams {
+  justify-content: center;
+  /* background-color: #4568dc; */
+  /* width: 1200px; */
+}
+.team-section {
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #4568dc, #b06ab3);
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 350px;
+}
+.team-section h5 {
+  color: #ffffff;
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+.members {
+  /* display: flex; */
+  justify-content: space-around;
+}
+.team-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
+
+  width: 100px;
+  height: 100px;
+  /* border: 2px solid black; */
+}
+.team-details img {
+  border-radius: 50%;
+  /* border: 1px dashed white; */
+  margin-bottom: 10px;
+  /* width: 100px;
+  height: 100px; */
+}
+.team-details h3 {
+  color: white;
+  font-size: 20px;
+}
+.team-heading {
+  /* text-align: center; */
+  font-size: 40px;
+  color: #4568dc;
+  /* background: linear-gradient(45deg, #20002c, #cbb4d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  /* margin-bottom: 30px; */
+}
 
 @media (max-width: 800px) {
   .about-ctnt {
     width: 350px;
   }
   .right-about {
-    order: 2;
+    order: 1;
   }
   .social {
     width: 350px;

@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./About.css";
 import about from "../assets/about-logo.png";
+import { useNavigate } from "react-router-dom";
 
 export default function AboutUs() {
-  const colors = ["yellowgreen", "skyblue", "#CC99FF", "lightpink"];
-  let index = 0;
-  setInterval(() => {
-    document.body.style.backgroundColor = colors[index];
-    index = (index + 1) % colors.length;
-  }, 3000);
+  const navigate = useNavigate();
+  const handleImageClick = () => {
+    navigate("/Details");
+  };
+  // const colors = ["yellowgreen", "skyblue", "#CC99FF", "lightpink"];
+  // let index = 0;
+  // setInterval(() => {
+  //   document.body.style.backgroundColor = colors[index];
+  //   index = (index + 1) % colors.length;
+  // }, 3000);
+  // fetch API
+  const [Data, setData] = useState(null);
+  const [Loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/Teams");
+        const json = await response.json();
+        console.log(json);
+        setData(json.data);
+        console.log(Array.isArray(Data));
+        console.log(Data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="container-fluid about-page">
       <h1 className="about-heading">About Us</h1>
@@ -50,10 +75,39 @@ export default function AboutUs() {
           </span>
         </div>
       </div>
-      <div className=" row team-members">
-        <div className="col-lg-6 col-md-12 col-sm-12 team-left"></div>
-        <div className="col-lg-6 col-md-12 col-sm-12 team-right"></div>
+      <h2 className="team-heading">Meet The Team</h2>
+      <div className="row teams">
+        {Loading ? (
+          <h5>Loading...</h5>
+        ) : Data ? (
+          Data.map((item, index) => (
+            <div
+              className="col-lg-4 col-md-12 col-sm-12 team-section"
+              key={index}
+            >
+              <h5>{item.title}</h5>
+              <div className="row members">
+                {item.members.map((childItem, index) => (
+                  <div
+                    className="col-lg-4 col-md-6 col-sm-12 team-details"
+                    key={index}
+                  >
+                    <img
+                      src={childItem.image}
+                      alt="image not found"
+                      onClick={handleImageClick}
+                    />
+                    <h3>{childItem.name}</h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>Data not found!</p>
+        )}
       </div>
+      <br />
     </div>
   );
 }

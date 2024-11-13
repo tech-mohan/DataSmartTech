@@ -1,0 +1,85 @@
+.Testimonials-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Testimonials-page h1 {
+  text-align: center;
+}
+/* .Testimonials {
+
+} */
+.Reviews h6 {
+  font-size: 18px;
+  position: relative;
+  top: 20px;
+}
+.Reviews {
+  height: 300px;
+  position: relative;
+  top: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: #00ccff;
+  /* animation: sliding-1 10s ease-in-out infinite; */
+}
+/* .Reviews:nth-of-type(1) {
+} */
+@keyframes sliding-1 {
+  0% {
+    transform: translateX(-500px);
+    scale: 0.5;
+  }
+
+  20% {
+    transform: translateX(400px);
+    scale: 1;
+  }
+  30% {
+    transform: translateX(400px);
+    scale: 1;
+  }
+  40% {
+    transform: translateX(400px);
+    scale: 1;
+  }
+  50% {
+    transform: translateX(400px);
+    scale: 1;
+  }
+  60% {
+    transform: translateX(400px);
+    scale: 1;
+  }
+  70% {
+    transform: translateX(400px);
+    scale: 1;
+  }
+
+  100% {
+    transform: translateX(2500px);
+    scale: 0.5;
+  }
+}
+.Reviews img:nth-of-type(1) {
+  margin-top: 100px;
+  width: 80px;
+  height: 60px;
+}
+.Reviews img:nth-of-type(2) {
+  width: 150px;
+  height: 140px;
+  border-radius: 50%;
+  position: relative;
+  top: 20px;
+}
+.Reviews p {
+  text-align: justify;
+  width: 600px;
+  margin-top: 20px;
+}
