@@ -3,13 +3,6 @@ import "./Home.css";
 import logo from "../assets/home-logo.png";
 
 export default function Home() {
-  const colors = ["yellowgreen", "skyblue", "#CC99FF", "lightpink"];
-  let index = 0;
-  setInterval(() => {
-    document.body.style.backgroundColor = colors[index];
-    index = (index + 1) % colors.length;
-  }, 3000);
-
   return (
     <div className="container">
       <div className="row">
@@ -28,17 +21,29 @@ export default function Home() {
           <h4>Our social media platforms</h4>
           <br />
           <div className="icons">
-            <a href="#">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/data_smart_technologies?igsh=eTJyMHltd3ppd214"
+            >
               <i class="bi bi-instagram"></i>
             </a>
-            <a href="#">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=61560699545350&mibextid=ZbWKwL"
+            >
               <i class="bi bi-facebook"></i>
             </a>
-            <a href="#">
+            <a
+              target="_blank"
+              href="https://m.youtube.com/@DataSmart_Technologies?fbclid=PAY2xjawGlIpFleHRuA2FlbQIxMAABpunv1wKAbBVgcvobzj8EQ0yrA72ggj7FUfllaB1kcURNtb46l-RQ_Zod4Q_aem_MIAgrjpbPjKyilQTLaFhFQ"
+            >
               <i class="bi bi-youtube"></i>
             </a>
-            <a href="#">
-              <i class="bi bi-geo-alt"></i>
+            <a
+              target="_blank"
+              href="https://x.com/Datasmart_Tech?t=Tq5bp5fbwROFAq951P4u_Q&s=09"
+            >
+              <i class="bi bi-twitter-x"></i>
             </a>
           </div>
         </div>

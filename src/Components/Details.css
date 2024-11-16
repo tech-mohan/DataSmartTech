@@ -1,3 +1,40 @@
-h1 {
+.container h1:nth-of-type(1) {
   text-align: center;
+  color: #003161;
+  /* text-decoration: underline; */
+}
+.details {
+  background-image: linear-gradient(to right, #00d4ff, #020024);
+  border-radius: 20px;
+}
+
+.det-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  animation: slide-left 2s forwards 1;
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(500px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+.det-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.det-right div h3 {
+  color: #fff6e3;
+}
+.det-left img {
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
 }

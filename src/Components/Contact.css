@@ -1,0 +1,87 @@
+.contact-card {
+  background-image: url("../assets/contact-bg-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px 2px 20px 5px black;
+}
+.card {
+  /* box-shadow: 2px 2px 20px 5px black; */
+  background-color: transparent;
+  border: none;
+}
+i {
+  font-size: 30px;
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-color: #fff; */
+
+  /* box-shadow: 2px 2px 20px 5px black; */
+  border-radius: 7px;
+}
+.insta,
+.facebook,
+.youtube,
+.location,
+.mail {
+  display: flex;
+  align-items: center;
+}
+
+.insta i {
+  color: #de3163;
+}
+.facebook i {
+  color: #4249d9;
+}
+.youtube i {
+  color: #e74c3c;
+}
+.location i {
+  color: red;
+}
+
+.contact-links a {
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 10px;
+  color: #fff;
+}
+.contact-links a:hover {
+  color: #4249d9;
+}
+.facebook i:hover {
+  color: #0008ff;
+}
+.youtube i:hover {
+  color: #fc0202;
+}
+.location i:hover {
+  color: #4249d9;
+}
+.name-field {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-links h4 {
+  text-decoration: underline;
+  text-align: center;
+}
+@media (max-width: 486px) {
+  .name-field {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .contact-links {
+    order: 1;
+    background-image: url("../assets/det-bg.jpg");
+    background-size: cover;
+  }
+
+  .card {
+    order: 2;
+  }
+}

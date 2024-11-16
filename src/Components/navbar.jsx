@@ -10,23 +10,6 @@ function Navbar() {
   const handleComponentClick = (componentID) => {
     navigate("/Services", { state: { scrollTo: componentID } });
   };
-  // for responciveness
-  // useEffect(() => {
-  //   const handleClick = (event) => {
-  //     const submenu = document.getElementById("submenu");
-  //     submenu.classList.toggle("active");
-  //   };
-
-  //   const services = document.getElementById("service-list");
-
-  //   if (services) {
-  //     services.addEventListener("click", handleClick);
-  //   }
-  //   return () => {
-  //     services.removeEventListener("click", handleClick);
-  //   };
-  // }, []);
-
   return (
     <nav className="navbar navbar-expand-lg nav">
       <div className="container">
@@ -60,7 +43,7 @@ function Navbar() {
               <a href="Services" className="nav-link">
                 Services{" "}
                 <a id="service-list" href="#">
-                  <i class="bi bi-chevron-right"></i>
+                  <i className="bi bi-chevron-right"></i>
                 </a>
               </a>
               {/* Sub menu */}
@@ -69,7 +52,7 @@ function Navbar() {
                   <a href="#" className="sub-link">
                     Design N Development
                     <a id="service-list" href="#">
-                      <i class="bi bi-chevron-right"></i>
+                      <i className="bi bi-chevron-right"></i>
                     </a>
                   </a>
                   <ul className="add-sub-menu" id="add-sub-menu">

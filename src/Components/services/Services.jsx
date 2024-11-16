@@ -4,21 +4,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
 import { Link } from "react-scroll";
-import As400 from "./Design N Dev/As400";
-import Coldfusion from "./Design N Dev/Coldfusion";
-import Datascience from "./Design N Dev/Datascience";
-import Marketing from "./Design N Dev/Marketing";
-import Oracle from "./Design N Dev/Oracle";
-import SAP from "./Design N Dev/SAP";
-import Fullstack from "./Design N Dev/Fullstack";
-import Golang from "./Design N Dev/Golang";
-import Mainframe from "./Design N Dev/Mainframe";
-import MERN from "./Design N Dev/Mern";
-import RoboticsTwoD from "./Design N Dev/2D";
-import RPA from "./Design N Dev/RPA";
-import Sales from "./Design N Dev/Sales";
-import Studio from "./Design N Dev/Studio";
-import Web from "./Design N Dev/Web";
 
 export default function Services() {
   const bgcolor = ["darkcyan", "#CC99FF", "mediumseagreen", "lightpink"];

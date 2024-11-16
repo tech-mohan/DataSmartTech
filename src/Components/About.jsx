@@ -4,10 +4,6 @@ import about from "../assets/about-logo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function AboutUs() {
-  const navigate = useNavigate();
-  const handleImageClick = () => {
-    navigate("/Details");
-  };
   // const colors = ["yellowgreen", "skyblue", "#CC99FF", "lightpink"];
   // let index = 0;
   // setInterval(() => {
@@ -17,6 +13,11 @@ export default function AboutUs() {
   // fetch API
   const [Data, setData] = useState(null);
   const [Loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const handleImageClick = (memberId) => {
+    navigate("/Details", { state: { Id: memberId } });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,17 +61,29 @@ export default function AboutUs() {
             To know more about us please visit our social media accounts
           </h6>
           <span className="icons">
-            <a href="#">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/data_smart_technologies?igsh=eTJyMHltd3ppd214"
+            >
               <i class="bi bi-instagram"></i>
             </a>
-            <a href="#">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=61560699545350&mibextid=ZbWKwL"
+            >
               <i class="bi bi-facebook"></i>
             </a>
-            <a href="#">
+            <a
+              target="_blank"
+              href="https://m.youtube.com/@DataSmart_Technologies?fbclid=PAY2xjawGlIpFleHRuA2FlbQIxMAABpunv1wKAbBVgcvobzj8EQ0yrA72ggj7FUfllaB1kcURNtb46l-RQ_Zod4Q_aem_MIAgrjpbPjKyilQTLaFhFQ"
+            >
               <i class="bi bi-youtube"></i>
             </a>
-            <a href="#">
-              <i class="bi bi-geo-alt"></i>
+            <a
+              target="_blank"
+              href="https://x.com/Datasmart_Tech?t=Tq5bp5fbwROFAq951P4u_Q&s=09"
+            >
+              <i class="bi bi-twitter-x"></i>
             </a>
           </span>
         </div>
@@ -95,7 +108,7 @@ export default function AboutUs() {
                     <img
                       src={childItem.image}
                       alt="image not found"
-                      onClick={handleImageClick}
+                      onClick={() => handleImageClick(childItem.id)}
                     />
                     <h3>{childItem.name}</h3>
                   </div>

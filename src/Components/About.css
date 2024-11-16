@@ -54,7 +54,7 @@
 .team-section {
   /* border: 1px solid black; */
   border-radius: 20px;
-  background-image: linear-gradient(to right, #4568dc, #b06ab3);
+  background-image: linear-gradient(to right, #16222a, #3a6073);
   margin-bottom: 20px;
   margin-right: 20px;
   width: 350px;
@@ -95,7 +95,7 @@
 .team-heading {
   /* text-align: center; */
   font-size: 40px;
-  color: #4568dc;
+  color: #16222a;
   /* background: linear-gradient(45deg, #20002c, #cbb4d4);
   -webkit-background-clip: text;
   background-clip: text;
