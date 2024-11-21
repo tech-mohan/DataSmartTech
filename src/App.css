@@ -5,26 +5,26 @@
   text-align: center;
 } */
 .icons a:nth-of-type(1) {
-  color: #de3163;
-}
-.icons a:nth-of-type(2) {
-  color: #4249d9;
-}
-.icons a:nth-of-type(3) {
-  color: #e74c3c;
-}
-.icons a:nth-of-type(4) {
-  color: darkslategray;
-}
-.icons a:nth-of-type(1):hover {
   color: #9b00ff;
 }
-.icons a:nth-of-type(2):hover {
+.icons a:nth-of-type(2) {
   color: #0008ff;
 }
-.icons a:nth-of-type(3):hover {
+.icons a:nth-of-type(3) {
   color: #fc0202;
 }
-.icons a:nth-of-type(4):hover {
+.icons a:nth-of-type(4) {
   color: black;
+}
+.icons a:nth-of-type(1):hover {
+  color: #de3163;
+}
+.icons a:nth-of-type(2):hover {
+  color: #4249d9;
+}
+.icons a:nth-of-type(3):hover {
+  color: #e74c3c;
+}
+.icons a:nth-of-type(4):hover {
+  color: darkslategray;
 }

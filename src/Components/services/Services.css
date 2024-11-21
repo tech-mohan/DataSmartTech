@@ -27,6 +27,7 @@
   justify-content: center;
   background-color: #ffffff;
   margin-bottom: 10px;
+  /* animation: slide_down 1s ease forwards; */
 
   /* z-index: -1; */
 }
@@ -93,3 +94,12 @@
     order: 2;
   }
 }
+
+/* @keyframes slide_down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+} */

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 export default function Services() {
   const bgcolor = ["darkcyan", "#CC99FF", "mediumseagreen", "lightpink"];
@@ -36,7 +37,7 @@ export default function Services() {
       try {
         const response = await fetch("http://localhost:8000/Services");
         const json = await response.json();
-        setData(json.data);
+        setData(json);
         setLoading(false);
         console.log(Array.isArray(Data));
         console.log(Data);
@@ -61,7 +62,15 @@ export default function Services() {
         <h6>loading....</h6>
       ) : Data ? (
         Data.map((item, index) => (
-          <div className="row service-page" key={index} id={item.id}>
+          <motion.div
+            className="row service-page"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            key={index}
+            id={item.id}
+          >
             <div className="col-lg-6 col-md-12 col-sm-12 service-left">
               <h4 className="sub-heading">{item.title}</h4>
               <p className="service-content">{item.content}</p>
@@ -73,7 +82,7 @@ export default function Services() {
                 className="service-img"
               />
             </div>
-          </div>
+          </motion.div>
         ))
       ) : (
         "Data Not Found!"

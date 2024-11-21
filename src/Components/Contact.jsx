@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Contact.css";
 
 export default function ContactUs() {
@@ -10,13 +10,19 @@ export default function ContactUs() {
     address: "",
     message: "",
   });
-  const [status, setStatus] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
   const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("sending...");
+    console.log("data", formData);
+    setIsLoading(true);
+    setError(null);
+    setSuccess(false);
     try {
       const response = await fetch("http://localhost:8000/send-mail", {
         method: "POST",
@@ -25,9 +31,8 @@ export default function ContactUs() {
         },
         body: JSON.stringify(formData),
       });
-      const result = await response.json();
-      if (result.ok) {
-        setStatus("Mail sent successfully!");
+      if (response.ok) {
+        setSuccess(true);
         setFormData({
           Fname: "",
           Lname: "",
@@ -37,14 +42,28 @@ export default function ContactUs() {
           message: "",
         });
       } else {
-        setStatus(result.message || "Error in mailsending...");
+        throw new Error("Faild to send mail.Try again!");
       }
-    } catch (error) {
-      setStatus("Error in sending mail...");
-      console.error("error:", error);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
-    console.log(formData);
   };
+  // useEffect(() => {
+  //   if (isSubmited) {
+  //     setFormData({
+  //       Fname: "",
+  //       Lname: "",
+  //       Contact_number: "",
+  //       email: "",
+  //       address: "",
+  //       message: "",
+  //     });
+  //     setIsSubmited(false);
+  //     console.log("current data:", formData);
+  //   }
+  // }, [isSubmited]);
   return (
     <div className="container contact-page">
       <h1 className="mb-5">Contact Us</h1>
@@ -100,8 +119,14 @@ export default function ContactUs() {
               target="_blank"
               href="https://www.google.com/maps/place/DataSmart+Technologies,+1371+%2F+9,+2nd+Floor+NEHRUJI+EXTN+1st+CROSS+STREET,+Periyakulam+Main+Rd,+near+Vaigai+Scan,+Theni,+Tamil+Nadu+625531/@10.0367994,77.4678209,15z/data=!4m6!3m5!1s0x3b076bbad545a669:0xbe0a205ccee5e89c!8m2!3d10.0367994!4d77.4858453!16s%2Fg%2F11y63tg_n5"
             >
-              Data Smart Technologies,1st Cross Street,Near Vaigai
-              Scan,Periyakulam Road,Theni,Tamil Nadu,India.
+              Data Smart Technologies,
+              <br />
+              Nehruji Extn,
+              <br /> 1st Cross Street,
+              <br /> Near Vaigai Scan,
+              <br />
+              Periyakulam Road,
+              <br /> Theni,Tamil Nadu,India.
             </a>
           </div>
         </div>
@@ -111,25 +136,25 @@ export default function ContactUs() {
               <form onSubmit={handleSubmit}>
                 <div className="name-field">
                   <div className="mb-3 ">
-                    <label htmlFor="Fname" name="Fname" className="form-label">
+                    <label htmlFor="Fname" className="form-label">
                       First Name
                     </label>
                     <input
                       type="text"
-                      id="Fname"
+                      name="Fname"
                       className="form-control"
-                      onChange={handleFormChange}
                       value={formData.Fname}
+                      onChange={handleFormChange}
                       placeholder="Enter your first name"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="Lname" name="Lname" className="form-label">
+                    <label htmlFor="Lname" className="form-label">
                       Last Name
                     </label>
                     <input
                       type="text"
-                      id="Lname"
+                      name="Lname"
                       className="form-control"
                       onChange={handleFormChange}
                       value={formData.Lname}
@@ -138,16 +163,12 @@ export default function ContactUs() {
                   </div>
                 </div>
                 <div className="mb-3">
-                  <label
-                    htmlFor="Contact-num"
-                    name="contact-num"
-                    className="form-label"
-                  >
+                  <label htmlFor="Contact-num" className="form-label">
                     Contact Number
                   </label>
                   <input
                     type="number"
-                    id="Contact_number"
+                    name="Contact_number"
                     className="form-control"
                     onChange={handleFormChange}
                     value={formData.Contact_number}
@@ -160,7 +181,7 @@ export default function ContactUs() {
                   </label>
                   <input
                     type="text"
-                    id="email"
+                    name="email"
                     className="form-control"
                     onChange={handleFormChange}
                     value={formData.email}
@@ -168,16 +189,12 @@ export default function ContactUs() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label
-                    htmlFor="address"
-                    name="location"
-                    className="form-label"
-                  >
+                  <label htmlFor="address" className="form-label">
                     Address
                   </label>
                   <textarea
                     type="text"
-                    id="address"
+                    name="address"
                     className="form-control"
                     onChange={handleFormChange}
                     value={formData.address}
@@ -193,16 +210,31 @@ export default function ContactUs() {
                     onChange={handleFormChange}
                     value={formData.message}
                     type="text"
-                    rows="4"
-                    id="message"
+                    namews="4"
+                    name="message"
                     className="form-control"
                     placeholder="Write your message..."
                   />
                 </div>
                 <div className="d-grid">
-                  <button className="btn btn-primary btn-lg">Send Mail</button>
+                  <button
+                    className="btn btn-primary btn-lg"
+                    disabled={isLoading}
+                    type="submit"
+                  >
+                    {isLoading ? "Sending..." : "Send Mail"}
+                  </button>
+                  {success && (
+                    <h4 style={{ color: "#00ff00", textAlign: "center" }}>
+                      Mail sent successfully!
+                    </h4>
+                  )}
+                  {error && (
+                    <h4 style={{ color: "#Ff0000", textAlign: "center" }}>
+                      {error}
+                    </h4>
+                  )}
                 </div>
-                {status}
               </form>
             </div>
           </div>
@@ -212,7 +244,7 @@ export default function ContactUs() {
             <input
               name="name"
               type="text"
-              onChange={handleFormChange}
+              nameChange={handleFormChange}
               value={formData.name}
             />
             <label>
@@ -220,7 +252,7 @@ export default function ContactUs() {
               <input
                 name="email"
                 type="mail"
-                onChange={handleFormChange}
+                nameChange={handleFormChange}
                 value={formData.email}
               />
             </label>
@@ -229,7 +261,7 @@ export default function ContactUs() {
               <input
                 name="msg"
                 type="txtarea"
-                onChange={handleFormChange}
+                nameChange={handleFormChange}
                 value={formData.msg}
               />
             </label>

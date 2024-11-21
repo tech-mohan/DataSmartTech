@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import logo from "../assets/home-logo.png";
 
 export default function Home() {
+  const [dummy, setDummy] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="container">
       <div className="row">

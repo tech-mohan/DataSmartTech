@@ -14,7 +14,7 @@ export default function Details() {
       const fetchData = async () => {
         try {
           const response = await fetch(
-            `http://localhost:8000/Teams/${state.Id}`
+            `http://localhost:8000/member/${state.Id}`
           );
           const json = await response.json();
           setMemberData(json);
@@ -34,17 +34,17 @@ export default function Details() {
         <h1>Loading...</h1>
       ) : MemberData ? (
         <div>
-          <h1>Details of {MemberData.name}</h1>
+          <h1>Details of {MemberData.member_name}</h1>
           <div className="row details">
             <div className="col-lg-6 col-md-12 col-sm-12 det-left">
               <img src={MemberData.image} alt="" />
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 det-right">
               <div className="member-det">
-                <h3>Name : {MemberData.name}</h3>
+                <h3>Name : {MemberData.member_name}</h3>
                 <h3>ID : {MemberData.id}</h3>
                 <h3>Role : {MemberData.role}</h3>
-                <h3>Deportment : {MemberData.group}</h3>
+                <h3>Deportment : {MemberData.department}</h3>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./About.css";
 import about from "../assets/about-logo.png";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function AboutUs() {
   // const colors = ["yellowgreen", "skyblue", "#CC99FF", "lightpink"];
@@ -21,12 +22,23 @@ export default function AboutUs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/Teams");
-        const json = await response.json();
-        console.log(json);
-        setData(json.data);
-        console.log(Array.isArray(Data));
-        console.log(Data);
+        const response = await fetch("http://localhost:8000/departments");
+        const data = await response.json();
+        console.log(data);
+        const grouped = data.reduce((acc, item) => {
+          if (!acc[item.department]) {
+            acc[item.department] = [];
+          }
+          acc[item.department].push({
+            name: item.member_name,
+            image: item.image,
+            role: item.role,
+            id: item.id,
+          });
+
+          return acc;
+        }, {});
+        setData(grouped);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -93,14 +105,18 @@ export default function AboutUs() {
         {Loading ? (
           <h5>Loading...</h5>
         ) : Data ? (
-          Data.map((item, index) => (
-            <div
+          Object.keys(Data).map((department) => (
+            <motion.div
               className="col-lg-4 col-md-12 col-sm-12 team-section"
-              key={index}
+              key={department}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
-              <h5>{item.title}</h5>
+              <h5>{department}</h5>
               <div className="row members">
-                {item.members.map((childItem, index) => (
+                {Data[department].map((childItem, index) => (
                   <div
                     className="col-lg-4 col-md-6 col-sm-12 team-details"
                     key={index}
@@ -114,7 +130,7 @@ export default function AboutUs() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))
         ) : (
           <p>Data not found!</p>
