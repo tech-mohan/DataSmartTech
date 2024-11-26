@@ -25,6 +25,8 @@ export default function Services() {
 
   // fetch the data
   const [Data, setData] = useState(null);
+  const [Keyfeatures, setKeyfeatures] = useState(null);
+  const [isDataloaded, setIsDataloaded] = useState(false);
   const [Loading, setLoading] = useState(true);
   useEffect(() => {
     // fetch method
@@ -38,6 +40,8 @@ export default function Services() {
         const response = await fetch("http://localhost:8000/Services");
         const json = await response.json();
         setData(json);
+
+        setIsDataloaded(true);
         setLoading(false);
         console.log(Array.isArray(Data));
         console.log(Data);
@@ -71,17 +75,84 @@ export default function Services() {
             key={index}
             id={item.id}
           >
-            <div className="col-lg-6 col-md-12 col-sm-12 service-left">
+            <div className="col-lg-10 col-md-12 col-sm-12 service-left">
               <h4 className="sub-heading">{item.title}</h4>
-              <p className="service-content">{item.content}</p>
+              <p className="overview">{item.overview}</p>
+
+              <div className="row inside-content">
+                <div className="col-lg-6 col-md-12">
+                  <ul>
+                    <h5>Key features</h5>
+                    {item.Key_features.split(",").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+                  <ul>
+                    <h5>Models</h5>
+                    {item.Models.split("&").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+                  <ul>
+                    <h5>Applications</h5>
+                    {item.Applications.split(",").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+                  <ul>
+                    <h5>Benefits</h5>
+                    {item.Benefits.split(",").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="col-lg-6 col-md-12">
+                  <ul>
+                    <h5>Operating Systems</h5>
+                    {item.Operating_Systems.split(",").map(
+                      (value, subIndex) => (
+                        <li key={subIndex}>{value}</li>
+                      )
+                    )}
+                  </ul>
+                  <ul>
+                    <h5>Programming Languages</h5>
+                    {item.Programming_Languages.split(",").map(
+                      (value, subIndex) => (
+                        <li key={subIndex}>{value}</li>
+                      )
+                    )}
+                  </ul>
+                  <ul>
+                    <h5>Replacement</h5>
+                    {item.Replacement.split(",").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+
+                  <ul>
+                    <h5>Limitations</h5>
+                    {item.Limitations.split(",").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+                  <ul>
+                    <h5>Job_Roles</h5>
+                    {item.Job_Roles.split(",").map((value, subIndex) => (
+                      <li key={subIndex}>{value}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 service-right">
+            {/* <div className="col-lg-4 col-md-12 col-sm-12 service-right">
               <img
                 src={item.image}
                 alt="image not found!"
                 className="service-img"
               />
-            </div>
+            </div> */}
           </motion.div>
         ))
       ) : (
