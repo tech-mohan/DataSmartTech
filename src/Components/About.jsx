@@ -48,26 +48,23 @@ export default function AboutUs() {
     fetchData();
   }, []);
   return (
-    <div className="container-fluid about-page">
-      <h1 className="about-heading">About Us</h1>
-
+    <div className="container about-page">
       <div className="row about">
         <div className="col-lg-6 col-md-12 col-sm-12 left-about">
           <img src={about} alt="" className="about-logo" />
         </div>
         <div className="col-lg-6 col-md-12 col-sm-12 right-about">
           <p className="about-ctnt">
-            We are building relationship with both of our Clients and
-            Consultants Since Year 2000. In order to bring them together in
-            highly efficient way.Our Research and Development departments
-            consist of the Software experts from various fields working smart
-            with more Innovative ideas and business logic to bring the best
-            software solution to the IT field. "XecuteSmart" is acting as a
-            perfect catalyst in a fast-moving IT industry. "XecuteSmart" has a
-            mark in the Global IT Market. We are taking up Assignment from
-            various Domestic and Global concern, getting it finished as per the
-            customer's expectation and their Excellent International Quality
-            Standards in time.
+            <h1 className="about-heading">Who we are !</h1>
+            having a strong social media presence is crucial for businesses of
+            all sizes. Whether you're a startup looking to establish your brand
+            or an established company wanting to engage with your audience more
+            effectively, the right social media marketing strategy can make all
+            the difference. That’s where DataSmart Technologies in Theni comes
+            in. Whether you need to improve your SEO rankings, run paid ads, or
+            develop a comprehensive digital marketing strategy, Data Smart
+            Technologies is here to help. Contact us today, and let’s take your
+            business to the next level!
           </p>
           <h6 className="social">
             To know more about us please visit our social media accounts

@@ -1,0 +1,52 @@
+.events-head {
+  text-align: center;
+}
+.date {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* .events-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+} */
+.event-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+}
+.gallery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gallery > .btn {
+  position: absolute;
+  top: 250px;
+  visibility: hidden;
+}
+.images {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.gallery:hover .images {
+  opacity: 0.5;
+  transition: 250ms;
+
+  cursor: pointer;
+}
+.gallery:hover .btn {
+  visibility: visible;
+}
+.carousel {
+  width: 400px;
+  height: 400px;
+}

@@ -1,14 +1,10 @@
-/* .nav {
-  margin-top: 50px;
-  margin-bottom: 50px;
-} */
 .navigation {
   display: flex;
   justify-content: start;
 }
 .main-logo {
-  width: 180x;
-  height: 180px;
+  max-width: 80x;
+  max-height: 80px;
 }
 
 .nav-link {
@@ -27,7 +23,7 @@
   background-color: white;
   visibility: hidden;
   position: absolute;
-  left: 520px;
+  left: 650px;
   transition: opacity 0.5s ease, transform 0.5s ease;
   transform: translateY(-10px);
   opacity: 0;

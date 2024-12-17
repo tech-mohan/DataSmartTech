@@ -16,8 +16,8 @@ function Navbar() {
     setDropdownVisible(true);
   };
   return (
-    <nav className="navbar navbar-expand-lg nav">
-      <div className="container">
+    <nav className="navbar navbar-expand-lg nav ">
+      <div className="container-fluid">
         <a className="navbar-brand">
           <img src={mainLogo} className="main-logo" alt="Data smart tech" />
         </a>
@@ -32,7 +32,7 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item active">
               <a href="/" className="nav-link ">
                 Home
@@ -256,6 +256,11 @@ function Navbar() {
                   </li>
                 </ul>
               )}
+            </li>
+            <li className="nav-item ">
+              <a href="Events" className="nav-link">
+                Events
+              </a>
             </li>
             <li className="nav-item ">
               <a href="Testimonials" className="nav-link">

@@ -7,18 +7,19 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-lg-6 col-md-12 left-home">
           <h2>Welcome to Data Smart Tech</h2>
           <br />
           <p>
-            We are building relationship with both of our Clients and
-            Consultants Since Year 2000. In order to bring them together in
-            highly efficient way. Our Research and Development Departments
-            consist of the Software experts from various fields working smart
-            with More Innovative ideas and business logic to bring the best
-            software solution to the IT field.
+            Data Smart Technologies is the go-to digital marketing agency that
+            delivers results. From local SEO and social media strategies to
+            high-converting PPC campaigns, we help you connect with your target
+            audience, boost your online presence, and ultimately drive more
+            sales. Based in the vibrant town of Theni, we leverage the power of
+            technology and innovation to deliver impactful branding strategies
+            tailored to your unique business needs.
           </p>
           <br />
           <h4>Our social media platforms</h4>

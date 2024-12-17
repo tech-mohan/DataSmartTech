@@ -7,14 +7,8 @@
 
 .about-heading {
   text-align: center;
-  /* margin-bottom: 30px; */
 
-  /* margin-top: 20px; */
-  font-size: 60px;
-  background: linear-gradient(45deg, rgb(16, 197, 237), rgb(204, 20, 171));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #001f3f;
 }
 /* .cover-about {
   filter: blur(1px);
@@ -43,6 +37,7 @@
   text-align: justify;
   width: 600px;
   color: black;
+  margin-bottom: 30px;
 }
 .about-logo {
   width: 500px;
@@ -96,8 +91,8 @@
 }
 .team-heading {
   /* text-align: center; */
-  font-size: 40px;
-  color: #16222a;
+  font-size: 35px;
+  color: #001f3f;
   /* background: linear-gradient(45deg, #20002c, #cbb4d4);
   -webkit-background-clip: text;
   background-clip: text;

@@ -1,47 +1,57 @@
 .contact-card {
-  background-image: url("../assets/contact-bg-2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 2px 2px 20px 5px black;
-  animation: scale 2s ease forwards;
-}
-.card {
   /* box-shadow: 2px 2px 20px 5px black; */
-  background-color: transparent;
-  border: none;
+  animation: scale 2s ease forwards;
+  gap: 6rem;
+
+  /* background-image: linear-gradient(to right, #e7e9bb, #403b4a); */
+  /* background-color: #e7e9bb; */
 }
+
 i {
   font-size: 30px;
 }
-.contact-links {
+.contact-right {
+  /* background-image: url("../assets/dove.jpeg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   /* background-color: #fff; */
-
   /* box-shadow: 2px 2px 20px 5px black; */
   border-radius: 7px;
 }
-.insta,
-.facebook,
-.youtube,
-.location,
-.mail {
+.icons-cpage {
+  width: 400px;
+  justify-content: space-evenly;
   display: flex;
-  align-items: center;
+}
+.conclusion {
+  text-align: justify;
+  justify-content: center;
+  font-weight: 400;
+  text-decoration: none;
 }
 
-.insta i {
+.icons-cpage a:nth-of-type(1) {
   color: #de3163;
+  filter: blur(1px);
+  transition-duration: 200ms;
 }
-.facebook i {
+.icons-cpage a:nth-of-type(2) {
   color: #4249d9;
+  filter: blur(1px);
 }
-.youtube i {
+.icons-cpage a:nth-of-type(3) {
   color: #e74c3c;
+  filter: blur(1px);
 }
-.location i {
-  color: red;
+.icons-cpage a:nth-of-type(4) {
+  color: black;
+  filter: blur(1px);
 }
 
 .contact-links a {
@@ -50,39 +60,76 @@ i {
   margin-left: 10px;
   color: #fff;
 }
-.contact-links a:hover {
-  color: #4249d9;
+.icons-cpage a:nth-of-type(1):hover {
+  filter: blur(0);
 }
-.facebook i:hover {
-  color: #0008ff;
+.icons-cpage a:nth-of-type(2):hover {
+  filter: blur(0);
 }
-.youtube i:hover {
-  color: #fc0202;
+.icons-cpage a:nth-of-type(3):hover {
+  filter: blur(0);
 }
-.location i:hover {
-  color: #4249d9;
+.icons-cpage a:nth-of-type(4):hover {
+  filter: blur(0);
 }
 .name-field {
   display: flex;
   justify-content: space-between;
 }
 .contact-links h4 {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   text-align: center;
 }
+
+/* contact-bottom */
+.contact-info {
+  background-color: darkslategrey;
+}
+.contact-info a {
+  text-decoration: none;
+  color: #fff;
+  padding-left: 10px;
+}
+.contact-info a:hover {
+  color: blue;
+}
+.contact-info i {
+  color: #fff;
+}
+.phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #fff;
+  height: 150px;
+}
+.mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #fff;
+  height: 150px;
+}
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 486px) {
   .name-field {
     display: block;
   }
 }
 @media (max-width: 768px) {
-  .contact-links {
+  .contact-right {
     order: 1;
-    background-image: url("../assets/det-bg.jpg");
-    background-size: cover;
   }
 
-  .card {
+  .contact-form {
     order: 2;
+  }
+  .contact-card {
+    gap: 10px;
   }
 }

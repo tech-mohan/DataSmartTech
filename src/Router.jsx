@@ -8,6 +8,8 @@ import Services from "./Components/services/Services";
 import Testimonials from "./Components/Testimonials";
 import ContactUs from "./Components/Contact";
 import Details from "./Components/Details";
+import Events from "./Components/Events";
+import serviceDetails from "./Components/service-details";
 
 export default function Routing() {
   return (
@@ -22,6 +24,8 @@ export default function Routing() {
           <Route path="Testimonials" Component={Testimonials} />
           <Route path="Contact_Us" Component={ContactUs} />
           <Route path="/Details" Component={Details} />
+          <Route path="Events" Component={Events} />
+          <Route path="/service-details" Component={serviceDetails} />
         </Routes>
       </BrowserRouter>
     </>
