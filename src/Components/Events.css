@@ -6,12 +6,11 @@
   text-decoration: none;
 }
 
-/* .events-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
-} */
+.events-list {
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
 .event-details {
   display: flex;
   flex-direction: column;
@@ -49,4 +48,80 @@
 .carousel {
   width: 400px;
   height: 400px;
+}
+
+/* modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+.modal-content {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 90%;
+  justify-content: center;
+  height: 90vh;
+  /* overflow: hidden; */
+}
+.carousel-slide {
+  display: flex !important;
+  flex-grow: 1 !important;
+  justify-content: center;
+  align-items: center;
+  height: 80vh !important;
+  width: 100% !important;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  z-index: 1002;
+}
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  /* background-color: red; */
+  color: black;
+  border: none;
+  font-size: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.slick-dots {
+  bottom: 15px;
+}
+.slick-dots li button:before {
+  color: #fff !important;
+}
+.slick-prev::before,
+.slick-next::before {
+  color: #fff !important;
+}
+.slick-prev {
+  left: -30px;
+}
+.slick-next {
+  right: -30px;
 }

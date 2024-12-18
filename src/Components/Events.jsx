@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "../Components/Events.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import CarouselModal from "./Carousel";
 
 export default function Events() {
   const [events, setEvents] = useState([]);
+
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,30 +27,41 @@ export default function Events() {
     fetchEventData();
   }, []);
 
+  // useEffect(() => {
+  //   if (isModalOpen) {
+  //     console.log("selected images in modal:", selectedImages);
+  //   }
+  // }, [isModalOpen, selectedImages]);
+
   return (
     <div className="container-fluid">
       <div className="row events-list">
-        {events.map((event, index) => (
-          <EventCard key={index} event={event} />
-        ))}
+        {events.length === 0 ? (
+          <progress value="50" max="100"></progress>
+        ) : (
+          events.map((event, index) => (
+            <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
+              <EventCard key={index} event={event} />
+            </div>
+          ))
+        )}
       </div>
-
-      <Carousel showThumbs={false} showIndicators={false} className="carosel">
-        <img
-          className="img1"
-          src="./src/assets/events/christmas-1.jpg"
-          alt="not found"
-        />
-        <img
-          className="img1"
-          src="./src/assets/events/christmas-2.jpg"
-          alt="not found"
-        />
-      </Carousel>
     </div>
   );
 }
 const EventCard = ({ event }) => {
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModalOpen = (images) => {
+    console.log(images);
+    setSelectedImages(images);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedImages([]);
+  };
   const [currentImage, setCurrentImage] = useState(event.images[0]);
   useEffect(() => {
     if (event.images.length === 0) return;
@@ -62,15 +75,21 @@ const EventCard = ({ event }) => {
     return () => clearInterval(interval);
   }, [event.images]);
   return (
-    <div>
-      <div className="col-lg-3 col-md-6 col-sm-12 event-details">
-        <div className="gallery">
-          <img className="images" src={currentImage} alt="" />
-          <button className="btn btn-danger">Photos</button>
-        </div>
-        <h3>{event.name}</h3>
-        <h5 className="date">{event.date}</h5>
+    <div className="event-details">
+      <div className="gallery">
+        <img className="images" src={currentImage} />
+        <button
+          className="btn btn-danger"
+          onClick={() => handleModalOpen(event.images)}
+        >
+          Photos
+        </button>
       </div>
+      <h3>{event.name}</h3>
+      <h5 className="date">{event.date}</h5>
+      {isModalOpen && (
+        <CarouselModal images={selectedImages} onClose={handleModalClose} />
+      )}
     </div>
   );
 };
